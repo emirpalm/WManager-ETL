@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29020.237
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "WManager", "WManager\WManager.dtproj", "{D5ABC640-030F-40F7-8CCC-6A109C28E0DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5ABC640-030F-40F7-8CCC-6A109C28E0DE}.Development|Default.ActiveCfg = Development
+		{D5ABC640-030F-40F7-8CCC-6A109C28E0DE}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2871CB3E-1DF3-4C0F-A628-C8F9AA6C3E95}
+	EndGlobalSection
+EndGlobal

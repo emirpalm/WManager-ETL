@@ -1,0 +1,17 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="OAuth 1"
+  DTS:DTSID="{37DE6F0C-6D55-4D1F-A70A-B47901F1B2C5}"
+  DTS:CreationName="ZS-OAUTH">
+  <DTS:ObjectData>
+    <ConnectionManager
+      ConnectionString="Provider=Assembla;OAuthVersion=Default;ScopeSeparator={space};ReturnUrl=;ExtraAttributesForTokenRequest=;ExtraAttributesForAuthRequest=;TokenRefreshMode=Default;SslVersion=Default;Prop1Name=;Prop1Value=;Prop2Name=;Prop2Value=;GrantType=Default;UserName=;DoNotIncludeCredentialsInHeader=False;DoNotIncludeCredentialsInBody=False;DoNotIncludeEmptyParamsInSignature=False;ContentType=;AuthUrl=https://_client_id:_client_secret@api.assembla.com/token?grant_type=authorization_code&amp;code=_authorization_code;TokenUrl=;RequestTokenUrl=;ClientId=bQSHJkJIir6ANcbQarZsNG;Scope=;Timeout=100000;UseCustomApp=True;CustomAuthHeader=;CustomTokenPrefix=;EnableOAuthOverUrl=False;RefreshTokenFilePath=;UseProxy=False;ProxyUrl=;UseProxyCreds=False;ProxyUserName=;DoNotUseDefaultProxy=False;UseClientCertificate=False;CertificatePath=;CertificateStorageType=CurrentUser;CertificateStoreName=My;CertificateThumbprint=;RetryMode=None;RetryCountMax=3;RetryWaitTimeMs=2000;RetryMultiplyWaitTime=False;RetryMessageList=;RetryStatusCodeList=">
+      <ClientSecret
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvyQgK5xt5ke2EB/JEBA1twAAAAACAAAAAAAQZgAAAAEAACAAAACc/eClI32UMcR72xB1Q7YZRyIpMrWgPLD7gfBU0I1mwwAAAAAOgAAAAAIAACAAAAB4N8HO7kMKztOg0tSO+XBz9qFs5NWoCgjCYxGI+34Ea1AAAAAsTl7u+KC7hAizhr8bSTOjgYYrIpwKlMzGzJOGpttA6E5WZYqLImd5xC4OPy7tEgF27fBOUvzgLkjGgA9lbPOzIYmtAiGYu36mP3caFlmLBkAAAABE98iyVoU5+eLDhilf2BUk6ue2TwXPRy7FI4xJlduhiw21yOYmRPv5U7mo9C2gnyP8LtjvRg/jDaIBYAk9jtuo</ClientSecret>
+      <AccessToken
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvyQgK5xt5ke2EB/JEBA1twAAAAACAAAAAAAQZgAAAAEAACAAAAAE5Z5/3EBlKT87F4+T1wSGcTggh/aB8cQnBICLbAElNwAAAAAOgAAAAAIAACAAAAB/U75DAiCAM6ECftq9t8imANEsedhlfI2JiQffAEFWOlAAAADfiaf51nwT1YAp9gnKG0st2/H9CWTLvySeifUhMQS1TmzyQ4wxfmyW8jQIkFVQJ2rC0OvUlu09MMd6rBHTulJgSHt+JoJkZl7k1O8BdiA7kUAAAAABOx25MfsFZffyMhpyiIYRoKISk00lmRgD/8viVZuWiggIwBVmq+ym+J2aoKzi6LqA2/L+L1tS4dSJu81gq5L5</AccessToken>
+      <RefreshToken
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAvyQgK5xt5ke2EB/JEBA1twAAAAACAAAAAAAQZgAAAAEAACAAAACFwbq86dzM0D5ic3tZbeSXdyK+Tng8HrtPscHEuY7J8wAAAAAOgAAAAAIAACAAAACbL6aw+04ELt1KABZiS48cQEjevIgMc69QDJgOy2lweFAAAADBUDNVvnsp1aj9a/ZLa+nUFp6kZwWKD1FR9QW/ADQ4P4MSfSSDv2GjANo0Pwm5SLtASbDJXXmArDOjin62bfzQ4PirdnB6jeb5o/aUpmwVxUAAAAAfpTnrHvxWQFH901KBIrNWac2FYVfRiPDLwck4RrPiwZEx+8jyLkWUwBb1YMJbgdQL0Y31vEXXceL7RJiDwf66</RefreshToken>
+    </ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
