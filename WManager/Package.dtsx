@@ -9,12 +9,12 @@
   DTS:ExecutableType="Microsoft.Package"
   DTS:ExecValue=""
   DTS:ExecValueType="8"
-  DTS:LastModifiedProductVersion="15.0.1300.375"
+  DTS:LastModifiedProductVersion="15.0.1301.433"
   DTS:LocaleID="2058"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="97"
-  DTS:VersionGUID="{77ECA6F4-6E2B-4F06-A3DD-A5C702CD4BFC}">
+  DTS:VersionBuild="119"
+  DTS:VersionGUID="{AAE46D3B-B2DD-4759-989E-6A21C9CFE804}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -172,12 +172,13 @@
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{014433CC-6446-4A6E-9AAC-51F9F31D9FF3}"
+      DTS:DTSID="{DCF06AD8-9D1D-4B2F-B04A-E0EB94FCAF6F}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="idSpace">
       <DTS:VariableValue
-        DTS:DataType="8">a6sHTgNAOr6zKscP_HzTya</DTS:VariableValue>
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -227,19 +228,21 @@
                   description="Especifica la instrucción SQL que genera la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT [id]
+  FROM [wmproject]</property>
                 <property
                   dataType="System.String"
                   description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from () [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (SELECT [id]
+  FROM [wmproject]) [refTable]
 where [refTable].[id] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
                   name="ConnectionType"
-                  typeConverter="LookupConnectionType">1</property>
+                  typeConverter="LookupConnectionType">0</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el tipo de caché de la tabla de búsqueda."
@@ -249,7 +252,7 @@ where [refTable].[id] = ?</property>
                   dataType="System.Int32"
                   description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
                   name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
+                  typeConverter="LookupNoMatchBehavior">0</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
@@ -265,12 +268,12 @@ where [refTable].[id] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indica si se debe hacer referencia a metadatos en formato XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_WSTR" length="88" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="name" dataType="DT_WSTR" length="68" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="description" dataType="DT_WSTR" length="80" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="wiki_name" dataType="DT_WSTR" length="68" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="id" dataType="DT_STR" length="100" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
-                  name="ParameterMap">#{Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id]};</property>
+                  name="ParameterMap">#{Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de id!1]};</property>
                 <property
                   dataType="System.Int32"
                   description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
@@ -282,11 +285,11 @@ where [refTable].[id] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Carga Incremental Space\Búsqueda.Connections[CacheConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Caché Space]"
-                  connectionManagerRefId="Package.ConnectionManagers[Caché Space]"
+                  refId="Package\Carga Incremental Space\Búsqueda.Connections[OleDbConnection]"
+                  connectionManagerID="{F0E08FBE-82C8-47F1-8D37-935CD2A026D9}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[69.46.5.164.WManager.sa1]"
                   description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
-                  name="CacheConnection" />
+                  name="OleDbConnection" />
               </connections>
               <inputs>
                 <input
@@ -294,11 +297,12 @@ where [refTable].[id] = ?</property>
                   name="Entrada de búsqueda">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga Incremental Space\Búsqueda.Inputs[Entrada de búsqueda].Columns[id]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="id"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id]">
+                      refId="Package\Carga Incremental Space\Búsqueda.Inputs[Entrada de búsqueda].Columns[Copia de id!1]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="88"
+                      cachedName="Copia de id!1"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de id!1]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -318,17 +322,19 @@ where [refTable].[id] = ?</property>
                 <output
                   refId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]"
                   errorOrTruncationOperation="Búsqueda"
+                  errorRowDisposition="IgnoreFailure"
                   exclusionGroup="1"
                   name="Salida de entradas coincidentes de búsqueda"
                   synchronousInputId="Package\Carga Incremental Space\Búsqueda.Inputs[Entrada de búsqueda]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[id]"
-                      dataType="wstr"
+                      refId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[LKP_SPACE_ID]"
+                      codePage="1252"
+                      dataType="str"
                       errorOrTruncationOperation="Copiar columna"
-                      length="88"
-                      lineageId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[id]"
-                      name="id"
+                      length="100"
+                      lineageId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[LKP_SPACE_ID]"
+                      name="LKP_SPACE_ID"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -417,36 +423,37 @@ where [refTable].[id] = ?</property>
                   name="Entrada de comando de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de name]"
+                      refId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[LKP_SPACE_ID]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
-                      cachedName="Copia de name"
-                      externalMetadataColumnId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de name]" />
-                    <inputColumn
-                      refId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de acr]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="Copia de acr"
-                      externalMetadataColumnId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de acr]" />
-                    <inputColumn
-                      refId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de descr]"
-                      cachedCodepage="1252"
-                      cachedDataType="text"
-                      cachedName="Copia de descr"
-                      externalMetadataColumnId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descr]" />
-                    <inputColumn
-                      refId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de Búsqueda.id]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="88"
-                      cachedName="Copia de Búsqueda.id"
+                      cachedName="LKP_SPACE_ID"
                       externalMetadataColumnId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_3]"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Búsqueda.id]" />
+                      lineageId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[LKP_SPACE_ID]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de name!0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="Copia de name!0"
+                      externalMetadataColumnId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de name!0]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de description!0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="Copia de description!0"
+                      externalMetadataColumnId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de description!0]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de wiki_name!0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="Copia de wiki_name!0"
+                      externalMetadataColumnId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de wiki_name!0]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -537,132 +544,134 @@ where [refTable].[id] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Carga Incremental Space\Conversión de datos"
+              refId="Package\Carga Incremental Space\Conversión de datos 1"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Conversión de datos;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Conversión de datos"
-              name="Conversión de datos"
+              name="Conversión de datos 1"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Carga Incremental Space\Conversión de datos.Inputs[Entrada de conversión de datos]"
+                  refId="Package\Carga Incremental Space\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
                   name="Entrada de conversión de datos">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="name"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[name]" />
-                    <inputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[descr]"
-                      cachedDataType="nText"
-                      cachedName="descr"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descr]" />
-                    <inputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[acr]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="acr"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[acr]" />
-                    <inputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[id]"
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[id!1]"
                       cachedDataType="wstr"
                       cachedLength="88"
-                      cachedName="id"
-                      lineageId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[id]" />
+                      cachedName="id!1"
+                      lineageId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[id!1]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[name!0]"
+                      cachedDataType="wstr"
+                      cachedLength="68"
+                      cachedName="name!0"
+                      lineageId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[name!0]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[description!0]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="description!0"
+                      lineageId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[description!0]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Inputs[Entrada de conversión de datos].Columns[wiki_name!0]"
+                      cachedDataType="wstr"
+                      cachedLength="68"
+                      cachedName="wiki_name!0"
+                      lineageId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[wiki_name!0]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos]"
+                  refId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos]"
                   exclusionGroup="1"
                   name="Salida de conversión de datos"
-                  synchronousInputId="Package\Carga Incremental Space\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  synchronousInputId="Package\Carga Incremental Space\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de name]"
-                      name="Copia de name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[name]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descr]"
-                      codePage="1252"
-                      dataType="text"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de descr]"
-                      name="Copia de descr"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descr]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de acr]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      length="100"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de acr]"
-                      name="Copia de acr"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[acr]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Búsqueda.id]"
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de id!1]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversión"
                       errorRowDisposition="FailComponent"
                       length="88"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de Búsqueda.id]"
-                      name="Copia de Búsqueda.id"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de id!1]"
+                      name="Copia de id!1"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
-                          name="SourceInputColumnLineageID">#{Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[id]}</property>
+                          name="SourceInputColumnLineageID">#{Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[id!1]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de name!0]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="68"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de name!0]"
+                      name="Copia de name!0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[name!0]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de description!0]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="80"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de description!0]"
+                      name="Copia de description!0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[description!0]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de wiki_name!0]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="68"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de wiki_name!0]"
+                      name="Copia de wiki_name!0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[wiki_name!0]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -673,22 +682,22 @@ where [refTable].[id] = ?</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de error de conversión de datos]"
+                  refId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de error de conversión de datos]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de conversión de datos"
-                  synchronousInputId="Package\Carga Incremental Space\Conversión de datos.Inputs[Entrada de conversión de datos]">
+                  synchronousInputId="Package\Carga Incremental Space\Conversión de datos 1.Inputs[Entrada de conversión de datos]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      refId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de error de conversión de datos].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -746,32 +755,37 @@ where [refTable].[id] = ?</property>
                   name="Entrada de destino de ADO NET">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[name]"
-                      cachedDataType="wstr"
-                      cachedLength="100"
-                      cachedName="name"
+                      refId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Copia de name!0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="Copia de name!0"
                       externalMetadataColumnId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[name]"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[name]" />
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de name!0]" />
                     <inputColumn
-                      refId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[descr]"
-                      cachedDataType="nText"
-                      cachedName="descr"
-                      externalMetadataColumnId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[descr]"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descr]" />
-                    <inputColumn
-                      refId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[acr]"
-                      cachedDataType="wstr"
+                      refId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[LKP_SPACE_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
                       cachedLength="100"
-                      cachedName="acr"
-                      externalMetadataColumnId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[acr]"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[acr]" />
-                    <inputColumn
-                      refId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id]"
-                      cachedDataType="wstr"
-                      cachedLength="88"
-                      cachedName="id"
+                      cachedName="LKP_SPACE_ID"
                       externalMetadataColumnId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id]"
-                      lineageId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[id]" />
+                      lineageId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[LKP_SPACE_ID]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Copia de description!0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="80"
+                      cachedName="Copia de description!0"
+                      externalMetadataColumnId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[descr]"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de description!0]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Copia de wiki_name!0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="68"
+                      cachedName="Copia de wiki_name!0"
+                      externalMetadataColumnId="Package\Carga Incremental Space\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[acr]"
+                      lineageId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos].Columns[Copia de wiki_name!0]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -837,11 +851,12 @@ where [refTable].[id] = ?</property>
                   name="Entrada de división condicional">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Carga Incremental Space\División condicional.Inputs[Entrada de división condicional].Columns[id]"
-                      cachedDataType="wstr"
-                      cachedLength="88"
-                      cachedName="id"
-                      lineageId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[id]" />
+                      refId="Package\Carga Incremental Space\División condicional.Inputs[Entrada de división condicional].Columns[LKP_SPACE_ID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="LKP_SPACE_ID"
+                      lineageId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[LKP_SPACE_ID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -861,13 +876,13 @@ where [refTable].[id] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Especifica la expresión. Esta versión de expresión usa identificadores de linaje en lugar de nombres de columna."
-                      name="Expression">[ISNULL](#{Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[id]})</property>
+                      name="Expression">[ISNULL](#{Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[LKP_SPACE_ID]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Especifica la versión descriptiva de la expresión. Esta versión de expresión usa nombres de columna."
                       expressionType="Notify"
-                      name="FriendlyExpression">ISNULL([Búsqueda].id)</property>
+                      name="FriendlyExpression">ISNULL(LKP_SPACE_ID)</property>
                     <property
                       dataType="System.Int32"
                       description="Especifica la posición de la condición en la lista de condiciones que evalúa la transformación. El orden de evaluación es del menor al mayor valor."
@@ -914,161 +929,93 @@ where [refTable].[id] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Carga Incremental Space\Origen de ADO NET"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
-              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
-              name="Origen de ADO NET"
-              usesDispositions="true"
-              version="4">
+              refId="Package\Carga Incremental Space\Leer Cache"
+              componentClassID="Microsoft.RawSource"
+              contactInfo="Lee los datos sin procesar de un archivo plano escrito anteriormente por el destino de archivo sin formato. Por ejemplo, para que los paquetes se ejecuten más rápidamente, se lee un archivo sin formato local en lugar de un origen lento o en lugar de distribuir manualmente los datos para su procesamiento paralelo en varios equipos.;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Lee los datos sin procesar de un archivo plano escrito anteriormente por el destino de archivo sin formato. Por ejemplo, para que los paquetes se ejecuten más rápidamente, se lee un archivo sin formato local en lugar de un origen lento o en lugar de distribuir manualmente los datos para su procesamiento paralelo en varios equipos."
+              name="Leer Cache"
+              version="1">
               <properties>
                 <property
-                  dataType="System.String"
-                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
                   dataType="System.Int32"
-                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
-                  name="CommandTimeout">30</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
-                  name="AllowImplicitStringConversion">true</property>
-                <property
-                  dataType="System.String"
-                  description="Nombre de la tabla de la base de datos de origen."
-                  expressionType="Notify"
-                  name="TableOrViewName"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."wmproject"</property>
-                <property
-                  dataType="System.Int32"
-                  description="Especificar el modo de recuperar información de columnas externas"
+                  description="Especifica el modo utilizado para tener acceso al archivo."
                   name="AccessMode"
-                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                  typeConverter="AccessMode">0</property>
                 <property
                   dataType="System.String"
-                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+                  description="Nombre del archivo de salida"
+                  name="FileName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.NonValidatingFileNameEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">C:\temp\space.raw</property>
+                <property
+                  dataType="System.Null"
+                  description="Nombre de la variable que contiene el nombre de archivo"
+                  name="FileNameVariable" />
               </properties>
-              <connections>
-                <connection
-                  refId="Package\Carga Incremental Space\Origen de ADO NET.Connections[IDbConnection]"
-                  connectionManagerID="{70D07ED9-C60D-4450-95E9-DCA385C1C5BA}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[69.46.5.164.WManager.sa]"
-                  description="Administrador de conexiones administrado"
-                  name="IDbConnection" />
-              </connections>
               <outputs>
                 <output
-                  refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET]"
-                  name="Salida de origen de ADO NET">
+                  refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato]"
+                  name="Salida de origen de archivo sin formato">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id]"
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[id!1]"
                       dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id]"
-                      length="100"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[id]"
-                      name="id"
-                      truncationRowDisposition="FailComponent" />
+                      externalMetadataColumnId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[id!1]"
+                      length="88"
+                      lineageId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[id!1]"
+                      name="id!1" />
                     <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[name]"
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[name!0]"
                       dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[name]"
-                      length="100"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[name]"
-                      name="name"
-                      truncationRowDisposition="FailComponent" />
+                      externalMetadataColumnId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[name!0]"
+                      length="68"
+                      lineageId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[name!0]"
+                      name="name!0" />
                     <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descr]"
-                      dataType="nText"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[descr]"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[descr]"
-                      name="descr"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[acr]"
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[description!0]"
                       dataType="wstr"
-                      errorOrTruncationOperation="Conversión"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[acr]"
-                      length="100"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].Columns[acr]"
-                      name="acr"
-                      truncationRowDisposition="FailComponent" />
+                      externalMetadataColumnId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[description!0]"
+                      length="80"
+                      lineageId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[description!0]"
+                      name="description!0" />
+                    <outputColumn
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[wiki_name!0]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[wiki_name!0]"
+                      length="68"
+                      lineageId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[wiki_name!0]"
+                      name="wiki_name!0" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[id]"
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[id!1]"
                       dataType="wstr"
-                      length="100"
-                      name="id" />
+                      length="88"
+                      name="id!1" />
                     <externalMetadataColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[name]"
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[name!0]"
                       dataType="wstr"
-                      length="100"
-                      name="name" />
+                      length="68"
+                      name="name!0" />
                     <externalMetadataColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[descr]"
-                      dataType="nText"
-                      name="descr" />
-                    <externalMetadataColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET].ExternalColumns[acr]"
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[description!0]"
                       dataType="wstr"
-                      length="100"
-                      name="acr" />
+                      length="80"
+                      name="description!0" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[wiki_name!0]"
+                      dataType="wstr"
+                      length="68"
+                      name="wiki_name!0" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[__Hash1!1021]"
+                      dataType="i4"
+                      name="__Hash1!1021" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[__Hash2!1021]"
+                      dataType="i4"
+                      name="__Hash2!1021" />
                   </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET]"
-                  isErrorOut="true"
-                  name="Salida de error de origen de ADO NET">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[id]"
-                      name="id" />
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[name]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[name]"
-                      name="name" />
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[descr]"
-                      dataType="nText"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[descr]"
-                      name="descr" />
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[acr]"
-                      dataType="wstr"
-                      length="100"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[acr]"
-                      name="acr" />
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
                 </output>
               </outputs>
             </component>
@@ -1081,19 +1028,19 @@ where [refTable].[id] = ?</property>
               startId="Package\Carga Incremental Space\División condicional.Outputs[INSERT]" />
             <path
               refId="Package\Carga Incremental Space.Paths[Salida de conversión de datos]"
-              endId="Package\Carga Incremental Space\División condicional.Inputs[Entrada de división condicional]"
+              endId="Package\Carga Incremental Space\Búsqueda.Inputs[Entrada de búsqueda]"
               name="Salida de conversión de datos"
-              startId="Package\Carga Incremental Space\Conversión de datos.Outputs[Salida de conversión de datos]" />
+              startId="Package\Carga Incremental Space\Conversión de datos 1.Outputs[Salida de conversión de datos]" />
             <path
               refId="Package\Carga Incremental Space.Paths[Salida de entradas coincidentes de búsqueda]"
-              endId="Package\Carga Incremental Space\Conversión de datos.Inputs[Entrada de conversión de datos]"
+              endId="Package\Carga Incremental Space\División condicional.Inputs[Entrada de división condicional]"
               name="Salida de entradas coincidentes de búsqueda"
               startId="Package\Carga Incremental Space\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda]" />
             <path
-              refId="Package\Carga Incremental Space.Paths[Salida de origen de ADO NET]"
-              endId="Package\Carga Incremental Space\Búsqueda.Inputs[Entrada de búsqueda]"
-              name="Salida de origen de ADO NET"
-              startId="Package\Carga Incremental Space\Origen de ADO NET.Outputs[Salida de origen de ADO NET]" />
+              refId="Package\Carga Incremental Space.Paths[Salida de origen de archivo sin formato]"
+              endId="Package\Carga Incremental Space\Conversión de datos 1.Inputs[Entrada de conversión de datos]"
+              name="Salida de origen de archivo sin formato"
+              startId="Package\Carga Incremental Space\Leer Cache.Outputs[Salida de origen de archivo sin formato]" />
             <path
               refId="Package\Carga Incremental Space.Paths[UPDATE]"
               endId="Package\Carga Incremental Space\Comando de OLE DB.Inputs[Entrada de comando de OLE DB]"
@@ -1107,13 +1054,13 @@ where [refTable].[id] = ?</property>
       DTS:refId="Package\Contenedor de bucles Foreach"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Contenedor de bucles Foreach"
-      DTS:DTSID="{CEDBCF23-14D6-4A9C-AC0B-75AD9A6949F1}"
+      DTS:DTSID="{3bb2b7af-e22e-4c3f-b9de-1b42fd82632c}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
       DTS:ObjectName="Contenedor de bucles Foreach">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachADOEnumerator"
-        DTS:DTSID="{EAFBD344-5B23-4E3B-9AB0-03C3D50FE9BF}"
+        DTS:DTSID="{d0d31238-c26c-46b3-891d-91b248158c6a}"
         DTS:ObjectName="{EAFBD344-5B23-4E3B-9AB0-03C3D50FE9BF}">
         <DTS:ObjectData>
           <FEEADO
@@ -1124,7 +1071,7 @@ where [refTable].[id] = ?</property>
       <DTS:Variables>
         <DTS:Variable
           DTS:CreationName=""
-          DTS:DTSID="{2D3DF0DC-492A-462F-81FD-2884EAF2F2FE}"
+          DTS:DTSID="{7b8f6285-9c92-4657-8485-dc6b05e10780}"
           DTS:IncludeInDebugDump="2345"
           DTS:Namespace="idSpace"
           DTS:ObjectName="Space">
@@ -1138,7 +1085,7 @@ where [refTable].[id] = ?</property>
           DTS:refId="Package\Contenedor de bucles Foreach\Ejecutar Subtarea"
           DTS:CreationName="Microsoft.ExecutePackageTask"
           DTS:Description="Ejecuta carga incremental milestone/tickets"
-          DTS:DTSID="{C5D72D79-81C2-4ADB-B281-04C59619A2B7}"
+          DTS:DTSID="{6c513171-8d0a-4033-8b73-1086bc764c3b}"
           DTS:ExecutableType="Microsoft.ExecutePackageTask"
           DTS:LocaleID="-1"
           DTS:ObjectName="Ejecutar Subtarea"
@@ -1148,6 +1095,10 @@ where [refTable].[id] = ?</property>
             <ExecutePackageTask>
               <UseProjectReference>True</UseProjectReference>
               <PackageName>Subtarea.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>NewParameterName</ParameterName>
+                <BindedVariableOrParameterName>User::idSpace</BindedVariableOrParameterName>
+              </ParameterAssignment>
             </ExecutePackageTask>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -1155,8 +1106,8 @@ where [refTable].[id] = ?</property>
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{8CAA19F1-1A7F-402A-A5D9-FB93604C051C}"
-          DTS:ObjectName="{8CAA19F1-1A7F-402A-A5D9-FB93604C051C}"
+          DTS:DTSID="{D4A09557-F9D4-4AC2-9EB5-80FA2DFAF661}"
+          DTS:ObjectName="{D4A09557-F9D4-4AC2-9EB5-80FA2DFAF661}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::idSpace" />
       </DTS:ForEachVariableMappings>
@@ -2069,7 +2020,7 @@ where [refTable].[id] = ?</property>
       DTS:refId="Package\Script Obtener id Space"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{5295181E-6425-4D04-8F09-E5BEA6021B20}"
+      DTS:DTSID="{e1511a99-a2f0-40cb-a2cb-c09fa68df93a}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Script Obtener id Space"
@@ -2099,7 +2050,7 @@ where [refTable].[id] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
       DTS:CreationName=""
-      DTS:DTSID="{CDE02BE3-7118-4E4F-9BC6-ABA9F55F8A0F}"
+      DTS:DTSID="{244D56C9-55CE-459A-B0D9-389FB53DA8F4}"
       DTS:From="Package\Carga Incremental Space"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 1"
@@ -2107,7 +2058,7 @@ where [refTable].[id] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
       DTS:CreationName=""
-      DTS:DTSID="{848211B4-B6EE-4270-BBF1-9B355A242AAE}"
+      DTS:DTSID="{5A0FFB58-417E-421B-B948-D06AD983D628}"
       DTS:From="Package\Script Obtener id Space"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
@@ -2147,18 +2098,22 @@ where [refTable].[id] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\Carga Incremental Space"
+          TopLeft="293.142862135051,157.835296331228" />
         <NodeLayout
           Size="162.4,41.6"
           Id="Package\Contenedor de bucles Foreach\Ejecutar Subtarea"
-          TopLeft="16.8000079699926,32.3764739257655" />
+          TopLeft="25.9428652685517,26.2588267811442" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
           PanelSize="211.2,128.8"
           Size="211.2,172"
           Id="Package\Contenedor de bucles Foreach"
-          TopLeft="278.842853415742,313.741176865258" />
+          TopLeft="293.71429071621,304.329414630349" />
         <NodeLayout
           Size="128.8,41.6"
           Id="Package\GET Space"
@@ -2166,47 +2121,21 @@ where [refTable].[id] = ?</property>
         <NodeLayout
           Size="189.6,41.6"
           Id="Package\Script Obtener id Space"
-          TopLeft="292.00000497273,239.670588870197" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="385.621429194236,281.270588870197">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.4705879950608"
-              Start="0,0"
-              End="0,24.9705879950608">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.9705879950608" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="196.8,41.6"
-          Id="Package\Carga Incremental Space"
-          TopLeft="293.142862135051,158.44706104569" />
+          TopLeft="298.300013555799,227.81176777744" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="391.114290988689,131.529413025932">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26.9176480197577"
+              StartConnector="{x:Null}"
+              EndConnector="0,26.3058833052961"
               Start="0,0"
-              End="0,19.4176480197577">
+              End="0,18.8058833052961">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.4176480197577" />
+                    End="0,18.8058833052961" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2217,18 +2146,40 @@ where [refTable].[id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
-          TopLeft="389.17143355389,200.04706104569">
+          TopLeft="392.321437845425,199.435296331228">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.6235278245072"
+              StartConnector="{x:Null}"
+              EndConnector="0,28.3764714462118"
               Start="0,0"
-              End="0,32.1235278245072">
+              End="0,20.8764714462118">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.1235278245072" />
+                    End="0,20.8764714462118" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 2]"
+          TopLeft="396.207152136005,269.41176777744">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,34.9176468529094"
+              Start="0,0"
+              End="0,27.4176468529094">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.4176468529094" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2241,10 +2192,213 @@ where [refTable].[id] = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
+    design-time-name="Package\Carga Incremental Space">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Carga Incremental Space\Conversión de datos 1"
+          TopLeft="486.666674954551,74.4313735928915" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Carga Incremental Space\Comando de OLE DB"
+          TopLeft="662.628571623199,330.196076386528" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Carga Incremental Space\División condicional"
+          TopLeft="493.86666657584,227.372547395172" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga Incremental Space\Destino de ADO NET"
+          TopLeft="302.819047067603,334.572547103459" />
+        <NodeLayout
+          Size="124,41.6"
+          Id="Package\Carga Incremental Space\Búsqueda"
+          TopLeft="512.914285539121,143.780391996707" />
+        <NodeLayout
+          Size="130.4,41.6"
+          Id="Package\Carga Incremental Space\Leer Cache"
+          TopLeft="506.514291601765,1.69411684056051" />
+        <EdgeLayout
+          Id="Package\Carga Incremental Space.Paths[Salida de conversión de datos]"
+          TopLeft="576.590480246836,116.031373592892">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,27.7490184038155"
+              Start="0,0"
+              End="0,20.2490184038155">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.2490184038155" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Incremental Space.Paths[INSERT]"
+          TopLeft="551.999999909174,268.972547395172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-161.18095284157,65.5999997082879"
+              Start="0,0"
+              End="-161.18095284157,58.0999997082879">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6061394165707" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.6061394165707"
+                    Point2="0,26.6061394165707"
+                    Point3="-4,26.6061394165707" />
+                  <mssgle:LineSegment
+                    End="-157.18095284157,26.6061394165707" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-157.18095284157,26.6061394165707"
+                    Point2="-161.18095284157,26.6061394165707"
+                    Point3="-161.18095284157,30.6061394165707" />
+                  <mssgle:LineSegment
+                    End="-161.18095284157,58.0999997082879" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-98.1807889207852,31.6061394165707,35.180625,9.5341796875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Incremental Space.Paths[UPDATE]"
+          TopLeft="606.133333242507,268.972547395172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="144.895238380692,61.2235289913561"
+              Start="0,0"
+              End="144.895238380692,53.7235289913561">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.8311243164942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.8311243164942"
+                    Point2="0,24.8311243164942"
+                    Point3="4,24.8311243164942" />
+                  <mssgle:LineSegment
+                    End="140.895238380692,24.8311243164942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="140.895238380692,24.8311243164942"
+                    Point2="144.895238380692,24.8311243164942"
+                    Point3="144.895238380692,28.8311243164942" />
+                  <mssgle:LineSegment
+                    End="144.895238380692,53.7235289913561" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="53.785724659096,29.8311243164942,37.3237890625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Incremental Space.Paths[Salida de origen de archivo sin formato]"
+          TopLeft="574.990483278158,43.2941168405605">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,31.137256752331"
+              Start="0,0"
+              End="0,23.637256752331">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.637256752331" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Incremental Space.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="576.990476057481,185.380391996707">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="0,41.9921553984645"
+              Start="0,0"
+              End="0,34.4921553984645">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.4921553984645" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,11.1484214492322,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Incremental Space\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Incremental Space\Búsqueda">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
     design-time-name="Package\GET Space">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="178.4,41.6"
           Id="Package\GET Space\JSON Source (Space)"
@@ -2258,7 +2412,7 @@ where [refTable].[id] = ?</property>
           TopLeft="331.971432055259,85.988235467858">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{assembly:Null}"
+              StartConnector="{x:Null}"
               EndConnector="0,38.2000015679531"
               Start="0,0"
               End="0,30.7000015679531">
@@ -2272,209 +2426,13 @@ where [refTable].[id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\Carga Incremental Space">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="172,41.6"
-          Id="Package\Carga Incremental Space\Origen de ADO NET"
-          TopLeft="496,66.4" />
-        <NodeLayout
-          Size="124,41.6"
-          Id="Package\Carga Incremental Space\Búsqueda"
-          TopLeft="523.2,155.2" />
-        <EdgeLayout
-          Id="Package\Carga Incremental Space.Paths[Salida de origen de ADO NET]"
-          TopLeft="583.6,108">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,47.2"
-              Start="0,0"
-              End="0,39.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Carga Incremental Space\División condicional"
-          TopLeft="499.2,343.2" />
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Carga Incremental Space\Destino de ADO NET"
-          TopLeft="335.2,471.2" />
-        <EdgeLayout
-          Id="Package\Carga Incremental Space.Paths[INSERT]"
-          TopLeft="557.333333333334,384.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-134.133333333333,86.4"
-              Start="0,0"
-              End="-134.133333333333,78.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.0422325581395" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.0422325581395"
-                    Point2="0,35.0422325581395"
-                    Point3="-4,35.0422325581395" />
-                  <mssgle:LineSegment
-                    End="-130.133333333333,35.0422325581395" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-130.133333333333,35.0422325581395"
-                    Point2="-134.133333333333,35.0422325581395"
-                    Point3="-134.133333333333,39.0422325581395" />
-                  <mssgle:LineSegment
-                    End="-134.133333333333,78.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-84.6569791666668,40.0422325581395,35.180625,9.5341796875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Carga Incremental Space\Comando de OLE DB"
-          TopLeft="651.2,476" />
-        <EdgeLayout
-          Id="Package\Carga Incremental Space.Paths[UPDATE]"
-          TopLeft="611.466666666667,384.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="128.133333333333,91.2"
-              Start="0,0"
-              End="128.133333333333,83.7">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.9890232558139" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,32.9890232558139"
-                    Point2="0,36.9890232558139"
-                    Point3="4,36.9890232558139" />
-                  <mssgle:LineSegment
-                    End="124.133333333333,36.9890232558139" />
-                  <mssgle:CubicBezierSegment
-                    Point1="124.133333333333,36.9890232558139"
-                    Point2="128.133333333333,36.9890232558139"
-                    Point3="128.133333333333,40.9890232558139" />
-                  <mssgle:LineSegment
-                    End="128.133333333333,83.7" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="45.4047721354166,41.9890232558139,37.3237890625,9.421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Carga Incremental Space\Conversión de datos"
-          TopLeft="499.2,252.8" />
-        <EdgeLayout
-          Id="Package\Carga Incremental Space.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="585.8,196.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56"
-              Start="0,0"
-              End="0,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-99.8190234375,18.15234375,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga Incremental Space.Paths[Salida de conversión de datos]"
-          TopLeft="585.4,294.4">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,48.8000000000001"
-              Start="0,0"
-              End="0,41.3000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,41.3000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga Incremental Space\Origen de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga Incremental Space\Búsqueda">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga Incremental Space\Destino de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
