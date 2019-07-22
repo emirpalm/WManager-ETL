@@ -13,8 +13,8 @@
   DTS:LocaleID="2058"
   DTS:ObjectName="Subtarea"
   DTS:PackageType="5"
-  DTS:VersionBuild="120"
-  DTS:VersionGUID="{CA61F658-34CB-421B-AAC7-58E4E61FE15B}">
+  DTS:VersionBuild="127"
+  DTS:VersionGUID="{8B6C410E-6A17-4DC0-94B6-42872C1F0F14}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -32,35 +32,41 @@
               DTS:DataType="20"
               DTS:IndexPosition="1"
               DTS:ObjectName="id"
-              DTS:DTSID="{BF06BFA1-1C68-4021-B0CF-67D088C0A7A3}"
+              DTS:DTSID="{144F15DD-DE3A-48CF-AE99-F6E1A923C9EF}"
               DTS:CreationName="" />
             <DTS:CacheColumn
               DTS:DataType="130"
               DTS:Length="80"
               DTS:ObjectName="start_date"
-              DTS:DTSID="{535B3F60-657B-4838-8E76-7569CBF125D1}"
+              DTS:DTSID="{A1D49A44-8197-4C58-8E92-050D1F170B46}"
               DTS:CreationName="" />
             <DTS:CacheColumn
               DTS:DataType="130"
               DTS:Length="40"
               DTS:ObjectName="due_date"
-              DTS:DTSID="{0CD75803-0B49-4E9D-8BB1-931F92BEF3FD}"
+              DTS:DTSID="{EC464155-DBF8-4CAC-9179-C4184393D992}"
               DTS:CreationName="" />
             <DTS:CacheColumn
               DTS:DataType="130"
               DTS:Length="88"
               DTS:ObjectName="space_id"
-              DTS:DTSID="{B9EC0A71-CDF0-4557-8F6B-42B7D22FF862}"
+              DTS:DTSID="{061E497F-981D-4B5D-829F-EF3D7CAC69A5}"
               DTS:CreationName="" />
             <DTS:CacheColumn
               DTS:DataType="20"
               DTS:ObjectName="planner_type"
-              DTS:DTSID="{8A116CD9-35F2-4463-8685-0C847CAB31D0}"
+              DTS:DTSID="{B01C0CEC-CA53-4EFA-978B-3849FCB67F0A}"
               DTS:CreationName="" />
             <DTS:CacheColumn
               DTS:DataType="11"
               DTS:ObjectName="is_completed"
-              DTS:DTSID="{22A59523-CCB3-41AC-9900-D19B66819C85}"
+              DTS:DTSID="{D886BAED-1AF9-496B-8B88-65D6181DAA6F}"
+              DTS:CreationName="" />
+            <DTS:CacheColumn
+              DTS:DataType="130"
+              DTS:Length="32"
+              DTS:ObjectName="tilte"
+              DTS:DTSID="{2CFE1D8D-5D71-4634-8D2E-6CBFB6C4E8A6}"
               DTS:CreationName="" />
           </DTS:CacheColumns>
         </DTS:ConnectionManager>
@@ -339,6 +345,7 @@ where [refTable].[id] = ?</property>
       ,[date_end] =?
       ,[status] =?
       ,[is_completed] =?
+      ,[namesprint]=?
  WHERE [wmsprint].id=?</property>
                 <property
                   dataType="System.Int32"
@@ -361,6 +368,14 @@ where [refTable].[id] = ?</property>
                   hasSideEffects="true"
                   name="Entrada de comando de OLE DB">
                   <inputColumns>
+                    <inputColumn
+                      refId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de space_id!0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="88"
+                      cachedName="Copia de space_id!0"
+                      externalMetadataColumnId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Carga Incremental Milestone\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de space_id!0]" />
                     <inputColumn
                       refId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[start_date!0]"
                       cachedDataType="wstr"
@@ -388,19 +403,19 @@ where [refTable].[id] = ?</property>
                       externalMetadataColumnId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_4]"
                       lineageId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[is_completed!0]" />
                     <inputColumn
-                      refId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[LKP_MILESTONE_ID]"
+                      refId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de id!1]"
                       cachedDataType="i4"
-                      cachedName="LKP_MILESTONE_ID"
-                      externalMetadataColumnId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
-                      lineageId="Package\Carga Incremental Milestone\Búsqueda.Outputs[Salida de entradas coincidentes de búsqueda].Columns[LKP_MILESTONE_ID]" />
+                      cachedName="Copia de id!1"
+                      externalMetadataColumnId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_6]"
+                      lineageId="Package\Carga Incremental Milestone\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de id!1]" />
                     <inputColumn
-                      refId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de space_id!0]"
+                      refId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].Columns[Copia de tilte!0]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="88"
-                      cachedName="Copia de space_id!0"
-                      externalMetadataColumnId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_0]"
-                      lineageId="Package\Carga Incremental Milestone\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de space_id!0]" />
+                      cachedLength="32"
+                      cachedName="Copia de tilte!0"
+                      externalMetadataColumnId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\Carga Incremental Milestone\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de tilte!0]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -463,13 +478,26 @@ where [refTable].[id] = ?</property>
                     </externalMetadataColumn>
                     <externalMetadataColumn
                       refId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_5]"
-                      dataType="i4"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
                       name="Param_5">
                       <properties>
                         <property
                           dataType="System.Int32"
                           description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
-                          name="DBParamInfoFlags">81</property>
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Carga Incremental Milestone\Comando de OLE DB.Inputs[Entrada de comando de OLE DB].ExternalColumns[Param_6]"
+                      dataType="i4"
+                      name="Param_6">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Información de parámetros. Coincide con los valores de DBPARAMFLAGSENUM de OLE DB."
+                          name="DBParamInfoFlags">65</property>
                       </properties>
                     </externalMetadataColumn>
                   </externalMetadataColumns>
@@ -535,6 +563,12 @@ where [refTable].[id] = ?</property>
                       cachedLength="88"
                       cachedName="space_id!0"
                       lineageId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[space_id!0]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Milestone\Conversión de datos.Inputs[Entrada de conversión de datos].Columns[tilte!0]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="tilte!0"
+                      lineageId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[tilte!0]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -602,6 +636,28 @@ where [refTable].[id] = ?</property>
                           dataType="System.Int32"
                           description="Especifica la columna de entrada usada como origen de datos para la conversión."
                           name="SourceInputColumnLineageID">#{Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[space_id!0]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Carga Incremental Milestone\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de tilte!0]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      length="32"
+                      lineageId="Package\Carga Incremental Milestone\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de tilte!0]"
+                      name="Copia de tilte!0"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica la columna de entrada usada como origen de datos para la conversión."
+                          name="SourceInputColumnLineageID">#{Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[tilte!0]}</property>
                         <property
                           dataType="System.Boolean"
                           description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
@@ -685,6 +741,20 @@ where [refTable].[id] = ?</property>
                   name="Entrada de destino de ADO NET">
                   <inputColumns>
                     <inputColumn
+                      refId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id!1]"
+                      cachedDataType="i8"
+                      cachedName="id!1"
+                      externalMetadataColumnId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id]"
+                      lineageId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[id!1]" />
+                    <inputColumn
+                      refId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Copia de space_id!0]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="88"
+                      cachedName="Copia de space_id!0"
+                      externalMetadataColumnId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_project]"
+                      lineageId="Package\Carga Incremental Milestone\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de space_id!0]" />
+                    <inputColumn
                       refId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[start_date!0]"
                       cachedDataType="wstr"
                       cachedLength="80"
@@ -711,19 +781,12 @@ where [refTable].[id] = ?</property>
                       externalMetadataColumnId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[is_completed]"
                       lineageId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[is_completed!0]" />
                     <inputColumn
-                      refId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[Copia de space_id!0]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="88"
-                      cachedName="Copia de space_id!0"
-                      externalMetadataColumnId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id_project]"
-                      lineageId="Package\Carga Incremental Milestone\Conversión de datos.Outputs[Salida de conversión de datos].Columns[Copia de space_id!0]" />
-                    <inputColumn
-                      refId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[id!1]"
-                      cachedDataType="i8"
-                      cachedName="id!1"
-                      externalMetadataColumnId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[id]"
-                      lineageId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[id!1]" />
+                      refId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].Columns[tilte!0]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="tilte!0"
+                      externalMetadataColumnId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[namesprint]"
+                      lineageId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[tilte!0]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -752,6 +815,11 @@ where [refTable].[id] = ?</property>
                       refId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[is_completed]"
                       dataType="bool"
                       name="is_completed" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Incremental Milestone\Destino de ADO NET.Inputs[Entrada de destino de ADO NET].ExternalColumns[namesprint]"
+                      dataType="wstr"
+                      length="50"
+                      name="namesprint" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -936,6 +1004,13 @@ where [refTable].[id] = ?</property>
                       externalMetadataColumnId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[is_completed!0]"
                       lineageId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[is_completed!0]"
                       name="is_completed!0" />
+                    <outputColumn
+                      refId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[tilte!0]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[tilte!0]"
+                      length="32"
+                      lineageId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].Columns[tilte!0]"
+                      name="tilte!0" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -974,6 +1049,11 @@ where [refTable].[id] = ?</property>
                       refId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[__Hash2!1021]"
                       dataType="i4"
                       name="__Hash2!1021" />
+                    <externalMetadataColumn
+                      refId="Package\Carga Incremental Milestone\Leer Cache.Outputs[Salida de origen de archivo sin formato].ExternalColumns[tilte!0]"
+                      dataType="wstr"
+                      length="32"
+                      name="tilte!0" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
@@ -1862,7 +1942,8 @@ where [refTable].[id] = ?</property>
               componentClassID="Microsoft.RawSource"
               contactInfo="Lee los datos sin procesar de un archivo plano escrito anteriormente por el destino de archivo sin formato. Por ejemplo, para que los paquetes se ejecuten más rápidamente, se lee un archivo sin formato local en lugar de un origen lento o en lugar de distribuir manualmente los datos para su procesamiento paralelo en varios equipos.;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
               description="Lee los datos sin procesar de un archivo plano escrito anteriormente por el destino de archivo sin formato. Por ejemplo, para que los paquetes se ejecuten más rápidamente, se lee un archivo sin formato local en lugar de un origen lento o en lugar de distribuir manualmente los datos para su procesamiento paralelo en varios equipos."
-              name="Leer Cache">
+              name="Leer Cache"
+              version="1">
               <properties>
                 <property
                   dataType="System.Int32"
@@ -2643,6 +2724,13 @@ where [refTable].[id] = ?</property>
                       externalMetadataColumnId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSourceOutput].ExternalColumns[is_completed]"
                       lineageId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSourceOutput].Columns[is_completed]"
                       name="is_completed" />
+                    <outputColumn
+                      refId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSourceOutput].Columns[title]"
+                      dataType="wstr"
+                      externalMetadataColumnId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSourceOutput].ExternalColumns[title]"
+                      length="32"
+                      lineageId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSourceOutput].Columns[title]"
+                      name="title" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2809,6 +2897,12 @@ where [refTable].[id] = ?</property>
                       lineageId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSource Error Output].Columns[is_completed]"
                       name="is_completed" />
                     <outputColumn
+                      refId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSource Error Output].Columns[title]"
+                      dataType="wstr"
+                      length="32"
+                      lineageId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSource Error Output].Columns[title]"
+                      name="title" />
+                    <outputColumn
                       refId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSource Error Output].Columns[ErrorCode]"
                       dataType="i4"
                       lineageId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSource Error Output].Columns[ErrorCode]"
@@ -2938,6 +3032,19 @@ where [refTable].[id] = ?</property>
                           dataType="System.String"
                           description="Columna de caché asociada a la columna de entrada."
                           name="CacheColumnName">is_completed</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\GET Milestone\Transformación de caché.Inputs[Entrada de caché].Columns[title]"
+                      cachedDataType="wstr"
+                      cachedLength="32"
+                      cachedName="title"
+                      lineageId="Package\GET Milestone\JSON Source (Milestone).Outputs[JsonSourceOutput].Columns[title]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Columna de caché asociada a la columna de entrada."
+                          name="CacheColumnName">tilte</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -3803,7 +3910,8 @@ where [refTable].[id] = ?</property>
               componentClassID="Microsoft.Cache"
               contactInfo="Transformación de caché;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
               description="Escribe datos en una memoria caché (archivo .caw) con el Administrador de conexiones de caché. Para reducir la carga de la base de datos, se debe reutilizar la memoria caché entre varias transformaciones Búsqueda. Para reducir el uso de la memoria, se debe compartir la memoria caché. Nota: los datos de la memoria caché se almacenan sin cifrar, por lo que no se recomienda su uso para información confidencial."
-              name="Transformación de caché">
+              name="Transformación de caché"
+              version="1">
               <properties>
                 <property
                   dataType="System.Boolean"
@@ -3978,6 +4086,36 @@ where [refTable].[id] = ?</property>
           ReadOnlyVariables="User::idSpace"
           ReadWriteVariables="User::parent">
           <ProjectItem
+            Name="Properties\AssemblyInfo.cs"
+            Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_5be52b097907452e932988aced716f7c")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_5be52b097907452e932988aced716f7c")]
+[assembly: AssemblyCopyright("Copyright @  2019")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+          <ProjectItem
             Name="Properties\Resources.resx"
             Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
 <root>
@@ -4096,35 +4234,6 @@ where [refTable].[id] = ?</property>
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 </root>]]></ProjectItem>
-          <ProjectItem
-            Name="Properties\Settings.Designer.cs"
-            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
-// <auto-generated>
-//     This code was generated by a tool.
-//
-//     Changes to this file may cause incorrect behavior and will be lost if
-//     the code is regenerated.
-// </auto-generated>
-//------------------------------------------------------------------------------
-
-[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_5be52b097907452e932988aced716f7c.Properties.Settings.get_Default():ST_5be52b097907452e932988aced716f7c.Properties.Sett" +
-    "ings")]
-
-namespace ST_5be52b097907452e932988aced716f7c.Properties {
-    
-    
-    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
-        
-        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-        private static Settings defaultInstance = new Settings();
-        
-        public static Settings Default {
-            get {
-                return defaultInstance;
-            }
-        }
-    }
-}]]></ProjectItem>
           <ProjectItem
             Name="ScriptMain.cs"
             Encoding="UTF8"><![CDATA[#region Help:  Introduction to the script task
@@ -4347,35 +4456,34 @@ namespace ST_5be52b097907452e932988aced716f7c
   </msb:ItemGroup>
 </c:Project>]]></ProjectItem>
           <ProjectItem
-            Name="Properties\AssemblyInfo.cs"
-            Encoding="UTF8"><![CDATA[using System.Reflection;
-using System.Runtime.CompilerServices;
+            Name="Properties\Settings.Designer.cs"
+            Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
 
-//
-// General Information about an assembly is controlled through the following 
-// set of attributes. Change these attribute values to modify the information
-// associated with an assembly.
-//
-[assembly: AssemblyTitle("ST_5be52b097907452e932988aced716f7c")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ST_5be52b097907452e932988aced716f7c")]
-[assembly: AssemblyCopyright("Copyright @  2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-//
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version 
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Revision and Build Numbers 
-// by using the '*' as shown below:
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_5be52b097907452e932988aced716f7c.Properties.Settings.get_Default():ST_5be52b097907452e932988aced716f7c.Properties.Sett" +
+    "ings")]
 
-[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+namespace ST_5be52b097907452e932988aced716f7c.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
           <ProjectItem
             Name="Properties\Settings.settings"
             Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
@@ -4634,37 +4742,23 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="213.6,41.6"
           Id="Package\Carga Incremental Milestone"
           TopLeft="205.142859614625,186.023532346046" />
         <NodeLayout
+          Size="201.6,41.6"
+          Id="Package\Carga Incremental Tickets"
+          TopLeft="203.428574892939,346.258828385561" />
+        <NodeLayout
           Size="145.6,41.6"
           Id="Package\GET Milestone"
           TopLeft="235.428568898415,97.3176475821894" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="310.08571425652,138.917647582189">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,47.1058847638566"
-              Start="0,0"
-              End="0,39.6058847638566">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.6058847638566" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+        <NodeLayout
+          Size="133.6,41.6"
+          Id="Package\GET Tickets"
+          TopLeft="238.285718343696,267.341180219947" />
         <NodeLayout
           Size="135.2,41.6"
           Id="Package\Tarea Script"
@@ -4674,7 +4768,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="308.200000783375,56.2823531470909">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,41.0352944350985"
               Start="0,0"
               End="0,33.5352944350985">
@@ -4691,16 +4785,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="133.6,41.6"
-          Id="Package\GET Tickets"
-          TopLeft="238.285718343696,267.341180219947" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 1]"
           TopLeft="308.51428897916,227.623532346046">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,39.7176478739013"
               Start="0,0"
               End="0,32.2176478739013">
@@ -4717,16 +4807,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="201.6,41.6"
-          Id="Package\Carga Incremental Tickets"
-          TopLeft="203.428574892939,346.258828385561" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
           TopLeft="304.657146618318,308.941180219947">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,37.3176481656137"
               Start="0,0"
               End="0,29.8176481656137">
@@ -4743,6 +4829,28 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Restricción 3]"
+          TopLeft="310.08571425652,138.917647582189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.1058847638566"
+              Start="0,0"
+              End="0,39.6058847638566">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.6058847638566" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -4750,23 +4858,15 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     design-time-name="Package\Carga Incremental Milestone">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Carga Incremental Milestone\División condicional"
           TopLeft="419.138461538462,298.030769230769" />
         <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Carga Incremental Milestone\Comando de OLE DB"
-          TopLeft="555.938461538461,410.030769230769" />
-        <NodeLayout
           Size="130.4,41.6"
           Id="Package\Carga Incremental Milestone\Leer Cache"
           TopLeft="434.77143523985,39.2588233170625" />
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Carga Incremental Milestone\Destino de ADO NET"
-          TopLeft="259.138461538462,406.830769230769" />
         <NodeLayout
           Size="174.4,41.6"
           Id="Package\Carga Incremental Milestone\Conversión de datos"
@@ -4776,47 +4876,11 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\Carga Incremental Milestone\Búsqueda"
           TopLeft="444.309890170711,198.913121903828" />
         <EdgeLayout
-          Id="Package\Carga Incremental Milestone.Paths[UPDATE]"
-          TopLeft="531.405128205128,339.630769230769">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="112.933333333333,70.4"
-              Start="0,0"
-              End="112.933333333333,62.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5529302325581" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.5529302325581"
-                    Point2="0,28.5529302325581"
-                    Point3="4,28.5529302325581" />
-                  <mssgle:LineSegment
-                    End="108.933333333333,28.5529302325581" />
-                  <mssgle:CubicBezierSegment
-                    Point1="108.933333333333,28.5529302325581"
-                    Point2="112.933333333333,28.5529302325581"
-                    Point3="112.933333333333,32.5529302325581" />
-                  <mssgle:LineSegment
-                    End="112.933333333333,62.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="37.8047721354165,33.5529302325581,37.3237890625,9.421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Carga Incremental Milestone.Paths[Salida de origen de archivo sin formato]"
           TopLeft="503.912091252381,80.8588233170625">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,41.2425341275515"
               Start="0,0"
               End="0,33.7425341275515">
@@ -4838,7 +4902,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="505.324175854586,240.513121903828">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,57.5176473269413"
               Start="0,0"
               End="0,50.0176473269413">
@@ -4862,7 +4926,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="507.081318717811,163.701357444614">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="0,35.211764459214"
               Start="0,0"
               End="0,27.711764459214">
@@ -4879,53 +4943,89 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Carga Incremental Milestone\Destino de ADO NET"
+          TopLeft="218.857146584258,402.305886951697" />
         <EdgeLayout
           Id="Package\Carga Incremental Milestone.Paths[INSERT]"
-          TopLeft="504.338461538461,339.630769230769">
+          TopLeft="477.271794871795,339.630769230769">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="-157.2,67.2"
+              StartConnector="{assembly:Null}"
+              EndConnector="-170.414648287538,62.6751177209284"
               Start="0,0"
-              End="-157.2,59.7">
+              End="-170.414648287538,55.1751177209284">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.6" />
+                    End="0,21.4198616989068" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,29.6"
-                    Point2="0,33.6"
-                    Point3="-4,33.6" />
+                    Point1="0,21.4198616989068"
+                    Point2="0,25.4198616989068"
+                    Point3="-4,25.4198616989068" />
                   <mssgle:LineSegment
-                    End="-153.2,33.6" />
+                    End="-166.414648287538,25.4198616989068" />
                   <mssgle:CubicBezierSegment
-                    Point1="-153.2,33.6"
-                    Point2="-157.2,33.6"
-                    Point3="-157.2,37.6" />
+                    Point1="-166.414648287538,25.4198616989068"
+                    Point2="-170.414648287538,25.4198616989068"
+                    Point3="-170.414648287538,29.4198616989068" />
                   <mssgle:LineSegment
-                    End="-157.2,59.7" />
+                    End="-170.414648287538,55.1751177209284" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-96.1903125,38.6,35.180625,9.5341796875"
+              BoundingBox="-102.797636643769,30.4198616989068,35.180625,9.5341796875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Carga Incremental Milestone\Comando de OLE DB"
+          TopLeft="615.885723452666,392.752946684682" />
+        <EdgeLayout
+          Id="Package\Carga Incremental Milestone.Paths[UPDATE]"
+          TopLeft="531.405128205129,339.630769230769">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="172.880595247537,53.1221774539133"
+              Start="0,0"
+              End="172.880595247537,45.6221774539133">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5453668557267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5453668557267"
+                    Point2="0,21.5453668557267"
+                    Point3="4,21.5453668557267" />
+                  <mssgle:LineSegment
+                    End="168.880595247537,21.5453668557267" />
+                  <mssgle:CubicBezierSegment
+                    Point1="168.880595247537,21.5453668557267"
+                    Point2="172.880595247537,21.5453668557267"
+                    Point3="172.880595247537,25.5453668557267" />
+                  <mssgle:LineSegment
+                    End="172.880595247537,45.6221774539133" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="67.7784030925185,26.5453668557267,37.3237890625,9.421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga Incremental Milestone\Destino de ADO NET">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga Incremental Milestone\Búsqueda">
     <Properties>
@@ -4950,86 +5050,22 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\GET Milestone">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="194.4,41.6"
-          Id="Package\GET Milestone\JSON Source (Milestone)"
-          TopLeft="441.6,59.2" />
-        <NodeLayout
-          Size="196.8,41.6"
-          Id="Package\GET Milestone\Transformación de caché"
-          TopLeft="444.8,173.6" />
-        <EdgeLayout
-          Id="Package\GET Milestone.Paths[JsonSourceOutput]"
-          TopLeft="541,100.8">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,72.8"
-              Start="0,0"
-              End="0,65.3">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,65.3" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\GET Tickets">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="227.2,41.6"
-          Id="Package\GET Tickets\JSON Source (REST API or File)"
-          TopLeft="338.4,37.6" />
-        <NodeLayout
-          Size="196.8,41.6"
-          Id="Package\GET Tickets\Transformación de caché"
-          TopLeft="355.2,125.6" />
-        <EdgeLayout
-          Id="Package\GET Tickets.Paths[JsonSourceOutput]"
-          TopLeft="452.8,79.2">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,46.4"
-              Start="0,0"
-              End="0,38.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
     design-time-name="Package\Carga Incremental Tickets">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Carga Incremental Tickets\Conversión de datos"
+          TopLeft="369.6,154.4" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Carga Incremental Tickets\División condicional"
+          TopLeft="365.6,364" />
+        <NodeLayout
+          Size="176.8,41.6"
+          Id="Package\Carga Incremental Tickets\Comando de OLE DB"
+          TopLeft="559.2,471.2" />
         <NodeLayout
           Size="130.4,41.6"
           Id="Package\Carga Incremental Tickets\Leer Cache"
@@ -5039,82 +5075,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           Id="Package\Carga Incremental Tickets\Búsqueda"
           TopLeft="393.6,258.4" />
         <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Carga Incremental Tickets\Conversión de datos"
-          TopLeft="369.6,154.4" />
-        <EdgeLayout
-          Id="Package\Carga Incremental Tickets.Paths[Salida de origen de archivo sin formato]"
-          TopLeft="455.4,96">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,58.4"
-              Start="0,0"
-              End="0,50.9">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,50.9" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Carga Incremental Tickets.Paths[Salida de conversión de datos]"
-          TopLeft="456.2,196">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,62.4000000000001"
-              Start="0,0"
-              End="0,54.9000000000001">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,54.9000000000001" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Carga Incremental Tickets\División condicional"
-          TopLeft="365.6,364" />
-        <EdgeLayout
-          Id="Package\Carga Incremental Tickets.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="453.2,300">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{x:Null}"
-              EndConnector="0,63.9999999999999"
-              Start="0,0"
-              End="0,56.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,56.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-99.8190234375,22.1523437499999,199.638046875,12.1953125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
           Size="176,41.6"
           Id="Package\Carga Incremental Tickets\Destino de ADO NET"
           TopLeft="213.6,472" />
@@ -5123,7 +5083,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
           TopLeft="423.733333333333,405.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="-122.133333333333,66.4"
               Start="0,0"
               End="-122.133333333333,58.9">
@@ -5154,16 +5114,12 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176.8,41.6"
-          Id="Package\Carga Incremental Tickets\Comando de OLE DB"
-          TopLeft="559.2,471.2" />
         <EdgeLayout
           Id="Package\Carga Incremental Tickets.Paths[UPDATE]"
           TopLeft="477.866666666667,405.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
-              StartConnector="{x:Null}"
+              StartConnector="{assembly:Null}"
               EndConnector="169.733333333333,65.6"
               Start="0,0"
               End="169.733333333333,58.1">
@@ -5194,6 +5150,78 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Incremental Tickets.Paths[Salida de origen de archivo sin formato]"
+          TopLeft="455.4,96">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.4"
+              Start="0,0"
+              End="0,50.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Incremental Tickets.Paths[Salida de entradas coincidentes de búsqueda]"
+          TopLeft="453.2,300">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.9999999999999"
+              Start="0,0"
+              End="0,56.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-99.8190234375,22.1523437499999,199.638046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga Incremental Tickets.Paths[Salida de conversión de datos]"
+          TopLeft="456.2,196">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.4000000000001"
+              Start="0,0"
+              End="0,54.9000000000001">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.9000000000001" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -5203,7 +5231,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -5213,7 +5241,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -5222,6 +5250,92 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga Incremental Tickets\Destino de ADO NET">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\GET Milestone">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\GET Milestone\Transformación de caché"
+          TopLeft="444.8,173.6" />
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\GET Milestone\JSON Source (Milestone)"
+          TopLeft="441.6,59.2" />
+        <EdgeLayout
+          Id="Package\GET Milestone.Paths[JsonSourceOutput]"
+          TopLeft="541,100.8">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,72.8"
+              Start="0,0"
+              End="0,65.3">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.3" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\GET Tickets">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="196.8,41.6"
+          Id="Package\GET Tickets\Transformación de caché"
+          TopLeft="355.2,125.6" />
+        <NodeLayout
+          Size="227.2,41.6"
+          Id="Package\GET Tickets\JSON Source (REST API or File)"
+          TopLeft="338.4,37.6" />
+        <EdgeLayout
+          Id="Package\GET Tickets.Paths[JsonSourceOutput]"
+          TopLeft="452.8,79.2">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.4"
+              Start="0,0"
+              End="0,38.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga Incremental Milestone\Destino de ADO NET">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
